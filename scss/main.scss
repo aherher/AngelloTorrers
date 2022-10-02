@@ -1,0 +1,53 @@
+@charset "utf-8";
+@import './mixin';
+
+.main_contents {
+  padding-top: 5rem;
+
+  @include pc {
+    padding-top: 1rem;
+  }
+}
+
+.copyright {
+  text-align: center;
+  color: var(--main-color);
+  width: 95%;
+  margin: 0 auto;
+
+  >div {
+    margin-bottom: 2rem;
+  }
+
+  .copyText01 {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .copyText02 {
+    font-size: 2.5rem;
+  }
+
+  @include pc {
+    @include flexStart;
+
+    >div {
+      width: 50%;
+    }
+  }
+}
+
+.greeting {
+  text-align: center;
+  color: var(--blue);
+  font-size: clamp(3rem, 7vw, 9rem);
+  padding: clamp(4rem, 10vw, 30rem) 5% 3rem 5%;
+
+}
+
+.comment {
+  text-align: center;
+  color: var(--orenge);
+  font-size: clamp(1.6rem, 6vw, 2rem);
+}

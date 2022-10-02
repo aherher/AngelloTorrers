@@ -1,0 +1,149 @@
+   @charset "uft-8";
+   @import './mixin';
+
+
+   input[type="number"]::-webkit-outer-spin-button,
+   input[type="number"]::-webkit-inner-spin-button {
+     -webkit-appearance: none;
+     margin: 0;
+   }
+
+   input:focus,
+   textarea:focus {
+     outline: none;
+   }
+
+   img {
+     max-width: 100%;
+   }
+
+
+   .center_box {
+     width: 95%;
+     max-width: 1440px;
+     margin: 0 auto;
+   }
+
+   .unMove {
+     opacity: 0;
+     transition: all 1.5s;
+   }
+
+   .moveOn {
+     transform: translate(0) !important;
+     opacity: 1 !important;
+   }
+
+   .moverWrap {
+     .movingBox {
+       opacity: 0;
+       transition: all 1.5s;
+     }
+   }
+
+   .moverOn_Wrap {
+     .movingBox {
+       transform: translate(0) !important;
+       opacity: 1 !important;
+     }
+   }
+
+
+   @for $i from 1 through 100 {
+     .delay#{$i} {
+       transition-delay: 0.1s * $i  !important;
+     }
+   }
+
+   .flex_start {
+     display: flex;
+     align-items: flex-start;
+     justify-content: space-between;
+   }
+
+   .flex_center {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+   }
+
+   .poppins {
+     font-family: 'Poppins', sans-serif;
+   }
+
+   :root {
+     --main-color: #7a731d;
+     --blue: rgba(112, 158, 187, 1);
+     --orenge: rgba(255, 100, 18, 1);
+   }
+
+   //  헤더
+   .header {
+     position: absolute;
+     top: 1rem;
+     width: 100%;
+
+     &__head {
+       width: 95%;
+       margin: 0 auto;
+       @include flexStart;
+     }
+
+     &__logo {
+       width: 3rem;
+
+       img {
+         width: 100%;
+       }
+     }
+
+     &__btn {
+       padding: 1.5rem 0;
+       transition: transform 0.3s;
+       background: none;
+
+       .hamberger {
+         width: 3rem;
+         height: 1.4rem;
+         position: relative;
+
+         >span {
+           display: block;
+           width: 100%;
+           height: 0.1rem;
+           background-color: var(--main-color);
+           margin: 0.5rem 0;
+           //  @include centerY(absolute);
+         }
+
+         &::after,
+         &::before {
+           content: '';
+           display: block;
+           width: 100%;
+           height: 0.1rem;
+           background-color: var(--main-color);
+           //  position: absolute;
+         }
+
+         &::after {
+           top: 0;
+         }
+
+         &::before {
+           bottom: 0;
+         }
+
+       }
+
+       &:hover {
+         transform: scale(1, 1.5);
+       }
+     }
+
+     @include pc {
+       &__logo {
+         width: 20rem;
+       }
+     }
+   }
